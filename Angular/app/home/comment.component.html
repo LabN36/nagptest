@@ -1,0 +1,33 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <textarea class="col-md-9 col-md-offset-1" rows="3" id="textArea" placeholder="write your comment here" [(ngModel)]="comment"></textarea>
+            <button class="col-md-1  btn btn-primary" (click)="addComment(comment)">Comment</button>
+        </div>
+        <div class="row" style="margin-top:50px">
+            <div class="col-md-offset-2 col-md-8">
+
+                <div class="col-md-8">
+                    <p>{{comment}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" *ngFor="let comm of comments" style="margin-top:50px">
+            <div class="col-md-offset-2 col-md-8">
+
+                <div class="col-md-8">
+                    <p>{{comm.text}}</p>
+                    <p style="margin-left:20px">- {{comm.time*1000 | date}}</p>
+                </div>
+                <div class="col-md-offset-1 col-md-3">
+                    <button class="btn btn-primary">Like</button>
+                    <button class="btn btn-primary">Reply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
